@@ -38,7 +38,7 @@
 > After running `/setup`, TicketMate automatically creates the category and all required channels.
 
 <div align="center">
-  <img src="assets/preview.png" alt="TicketMate Setup Preview" width="80%">
+  <img src="assets/preview.jpeg" alt="TicketMate Setup Preview" width="80%">
 </div>
 
 ---
