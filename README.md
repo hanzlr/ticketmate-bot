@@ -7,14 +7,14 @@
   <a href="https://discord.com/oauth2/authorize?client_id=1518488281380028506&permissions=395405544464&integration_type=0&scope=bot+applications.commands">
     <img src="https://img.shields.io/badge/Invite%20TicketMate-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Invite Bot">
   </a>
-  <a href="https://github.com/hanzlr/ticketmate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/hanzlr/ticketmate?style=for-the-badge&color=5865F2" alt="License">
+  <a href="https://github.com/hanzlr/ticketmate-bot/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/hanzlr/ticketmate-bot?style=for-the-badge&color=5865F2" alt="License">
   </a>
-  <a href="https://github.com/hanzlr/ticketmate/releases">
-    <img src="https://img.shields.io/github/v/release/hanzlr/ticketmate?style=for-the-badge&color=5865F2" alt="Release">
+  <a href="https://github.com/hanzlr/ticketmate-bot/releases">
+    <img src="https://img.shields.io/github/v/release/hanzlr/ticketmate-bot?style=for-the-badge&color=5865F2" alt="Release">
   </a>
-  <a href="https://github.com/hanzlr/ticketmate/issues">
-    <img src="https://img.shields.io/github/issues/hanzlr/ticketmate?style=for-the-badge&color=5865F2" alt="Issues">
+  <a href="https://github.com/hanzlr/ticketmate-bot/issues">
+    <img src="https://img.shields.io/github/issues/hanzlr/ticketmate-bot?style=for-the-badge&color=5865F2" alt="Issues">
   </a>
 
 </div>
@@ -38,7 +38,7 @@
 > After running `/setup`, TicketMate automatically creates the category and all required channels.
 
 <div align="center">
-  <img src="assets/preview.jpeg" alt="TicketMate Setup Preview" width="80%">
+  <img src="assets/preview.png" alt="TicketMate Setup Preview" width="80%">
 </div>
 
 ---
@@ -64,7 +64,7 @@ Prefer to host your own instance? Follow the steps below.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/hanzlr/ticketmate.git
+git clone https://github.com/hanzlr/ticketmate-bot.git
 cd ticketmate
 ```
 

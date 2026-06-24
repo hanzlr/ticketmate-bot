@@ -17,7 +17,7 @@ If you discover a security vulnerability, **please do not open a public GitHub i
 
 Instead, report it privately by emailing:
 
-📧 **[your-email@example.com]**
+📧 **[raihan.ramandha@nexalab.my.id]**
 
 Please include:
 - A clear description of the vulnerability

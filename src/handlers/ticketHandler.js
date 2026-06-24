@@ -25,7 +25,6 @@ async function fetchAllMessages(channel) {
     allMessages.push(...batch.values());
     lastId = batch.last().id;
 
-    // Jika batch terakhir kurang dari 100, berarti sudah habis
     if (batch.size < 100) break;
   }
 
@@ -33,24 +32,23 @@ async function fetchAllMessages(channel) {
 }
 
 async function openTicket(interaction) {
+  // Defer dulu supaya Discord tidak timeout
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
   const guildId = interaction.guildId;
 
   const config = await db.collection("config").doc(guildId).get();
   if (!config.exists) {
-    return interaction.reply({
-      content:
-        "❌ Bot hasn't been set up yet! Ask an admin to run `/setup` first.",
-      flags: MessageFlags.Ephemeral,
+    return interaction.editReply({
+      content: "❌ Bot hasn't been set up yet! Ask an admin to run `/setup` first.",
     });
   }
 
   const { categoryId } = config.data();
 
   if (!categoryId) {
-    return interaction.reply({
-      content:
-        "❌ Ticket category hasn't been set up yet! Ask an admin to run `/setup` first.",
-      flags: MessageFlags.Ephemeral,
+    return interaction.editReply({
+      content: "❌ Ticket category hasn't been set up yet! Ask an admin to run `/setup` first.",
     });
   }
 
@@ -62,9 +60,8 @@ async function openTicket(interaction) {
     .get();
 
   if (!existing.empty) {
-    return interaction.reply({
+    return interaction.editReply({
       content: "❌ You already have an open ticket!",
-      flags: MessageFlags.Ephemeral,
     });
   }
 
@@ -119,20 +116,21 @@ async function openTicket(interaction) {
 
   await channel.send({ embeds: [embed], components: [row] });
 
-  return interaction.reply({
+  return interaction.editReply({
     content: `✅ Ticket created! Head over to ${channel}`,
-    flags: MessageFlags.Ephemeral,
   });
 }
 
 async function closeTicket(interaction) {
+  // Defer dulu supaya Discord tidak timeout
+  await interaction.deferReply();
+
   const channelId = interaction.channelId;
 
   const ticket = await db.collection("tickets").doc(channelId).get();
   if (!ticket.exists) {
-    return interaction.reply({
+    return interaction.editReply({
       content: "❌ This channel is not a ticket!",
-      flags: MessageFlags.Ephemeral,
     });
   }
 
@@ -144,7 +142,7 @@ async function closeTicket(interaction) {
     closedAt: new Date(),
   });
 
-  await interaction.reply({
+  await interaction.editReply({
     content: `🔒 Ticket closed by ${interaction.user}. Saving transcript...`,
   });
 
@@ -198,7 +196,6 @@ async function closeTicket(interaction) {
     .setColor("#5865F2")
     .setFooter({ text: "TicketMate" });
 
-  // Kirim ke ticket-archive sebagai thread
   if (archiveChannelId) {
     try {
       const archiveChannel =
@@ -220,7 +217,11 @@ async function closeTicket(interaction) {
 
   // Hapus channel setelah 5 detik
   setTimeout(async () => {
-    await interaction.channel.delete();
+    try {
+      await interaction.channel.delete();
+    } catch (e) {
+      console.error("Failed to delete channel:", e.message);
+    }
   }, 5000);
 }
 

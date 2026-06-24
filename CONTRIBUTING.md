@@ -6,7 +6,7 @@ Thanks for taking the time to contribute! Here's a quick guide to get you starte
 
 ## 🐛 Reporting Bugs
 
-1. Check if the issue [already exists](https://github.com/hanzlr/ticketmate/issues)
+1. Check if the issue [already exists](https://github.com/hanzlr/ticketmate-bot/issues)
 2. If not, open a new issue using the **Bug Report** template
 3. Include as much detail as possible — steps to reproduce, expected vs actual behavior, and any error messages
 
