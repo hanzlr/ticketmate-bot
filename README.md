@@ -181,8 +181,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📜 Legal
 
-- [Terms of Service](https://github.com/hanzlr/ticketmate-docs/blob/main/terms-of-service.md)
-- [Privacy Policy](https://github.com/hanzlr/ticketmate-docs/blob/main/privacy-policy.md)
+- [Terms of Service](https://hanzlr.github.io/ticketmate-docs/terms-of-service)
+- [Privacy Policy](https://hanzlr.github.io/ticketmate-docs/privacy-policy)
 
 ---
 
